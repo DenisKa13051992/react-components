@@ -1,5 +1,7 @@
 import React, { ChangeEvent, Component } from 'react';
 
+import './SearchBar.css';
+
 class SearchBar extends Component {
   state = { inputValue: localStorage.getItem('searchValue') || '' };
 
@@ -13,7 +15,13 @@ class SearchBar extends Component {
     const inputValue = this.state.inputValue;
     return (
       <form className="searchBar">
-        <input type="text" placeholder="Search" onChange={this.handleChange} value={inputValue} />
+        <input
+          className="searchInput"
+          type="text"
+          placeholder="Search"
+          onChange={this.handleChange}
+          value={inputValue}
+        />
       </form>
     );
   }
