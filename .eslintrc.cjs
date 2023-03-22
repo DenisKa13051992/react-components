@@ -21,7 +21,7 @@ module.exports = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: 'react-components/tsconfig.json',
+    project: 'tsconfig.json',
   },
   plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
   rules: {

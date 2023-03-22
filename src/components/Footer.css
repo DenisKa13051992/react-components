@@ -1,0 +1,17 @@
+.footer-list {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  justify-content: space-between;
+}
+
+.footer-item {
+  list-style-type: none;
+  margin: 5px;
+}
+
+.footer-rss-img, .footer-github-img {
+  max-width: 40px;
+  max-height: 40px;
+}
+

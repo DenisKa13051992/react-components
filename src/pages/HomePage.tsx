@@ -1,12 +1,13 @@
+import CartList from '../components/CartList';
 import React from 'react';
 
 import SearchBar from '../components/SearchBar';
 
 function HomePage() {
   return (
-    <div>
-      <h1>I will try to do it tomorrow)</h1>
+    <div className="main-container">
       <SearchBar />
+      <CartList />
     </div>
   );
 }
