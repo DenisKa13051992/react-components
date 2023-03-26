@@ -17,6 +17,11 @@ function Header() {
             About us
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to={'/forms'}>
+            Forms
+          </NavLink>
+        </li>
       </ul>
     </header>
   );

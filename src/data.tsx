@@ -1892,3 +1892,23 @@ export const products: IDataProduct[] = [
 ];
 
 export default products;
+
+export const country: string[] = [
+  'Australia',
+  'Belarus',
+  'Cyprus',
+  'France',
+  'Germany',
+  'United Kingdom',
+  'Italy',
+  'Kazakhstan',
+  'Latvia',
+  'Lithuania',
+  'Poland',
+  'Russia',
+  'Spain',
+  'Turkmenistan',
+  'Ukraine',
+  'United States of America',
+  'Other',
+];

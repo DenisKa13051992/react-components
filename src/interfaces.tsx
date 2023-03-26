@@ -18,5 +18,20 @@ export type IDataProductWithKey = {
 };
 
 export type StateType = {
-  isActive: boolean;
+  isActive?: boolean;
+  value?: string;
+};
+
+export type UserNameForm = {
+  userName: string;
+  propRef: React.Ref<HTMLInputElement>;
+};
+
+export type UserCountryForm = {
+  userName: string;
+  propRef: React.Ref<HTMLSelectElement>;
+};
+
+export type UserFileForm = {
+  propRef: React.Ref<HTMLInputElement>;
 };
