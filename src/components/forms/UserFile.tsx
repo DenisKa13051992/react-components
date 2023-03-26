@@ -8,7 +8,7 @@ class UserFileInput extends Component<UserFileForm> {
 
   render() {
     return (
-      <label className="form-item-user-foto">
+      <label className="form-item-user-photo">
         Upload foto:
         <input type="file" ref={this.props.propRef} />
       </label>

@@ -22,27 +22,27 @@ class Cart extends Component<IDataProductWithKey, StateType> {
         <div className="cart-item-img-div">
           <img className="cart-item-img" src={dataProduct.images[0]} alt="" />
         </div>
-        <div className="cart-item-title">${dataProduct.title}</div>
-        <h4 className="cart-item-description">${dataProduct.description}</h4>
+        <div className="cart-item-title">{dataProduct.title}</div>
+        <h4 className="cart-item-description">{dataProduct.description}</h4>
         <ul className="cart-item-list-group">
           <li className="list-group-item">
             <small>
-              Price: <span className="ItemPrice">${dataProduct.price}</span> EUR
+              Price: <span className="ItemPrice">{dataProduct.price}</span> EUR
             </small>
           </li>
           <li className="list-group-item">
             <small>
-              Discount: <span className="ItemDiscount">${dataProduct.discountPercentage}</span> %
+              Discount: <span className="ItemDiscount">{dataProduct.discountPercentage}</span> %
             </small>
           </li>
           <li className="list-group-item">
             <small>
-              Rating: <span className="ItemRating">${dataProduct.rating}</span>
+              Rating: <span className="ItemRating">{dataProduct.rating}</span>
             </small>
           </li>
           <li className="list-group-item">
             <small>
-              Stock: <span className="ItemStock">${dataProduct.stock}</span>
+              Stock: <span className="ItemStock">{dataProduct.stock}</span>
             </small>
           </li>
         </ul>

@@ -10,11 +10,11 @@ class UserGender extends Component<UserNameForm, StateType> {
     return (
       <label className="form-item">
         <div>
-          <input type="radio" value="Male" name="gender" ref={this.props.propRef} />
+          <input type="radio" name="gender" defaultChecked ref={this.props.propRef} />
           Male
         </div>
         <div>
-          <input type="radio" value="Female" name="gender" />
+          <input type="radio" name="gender" />
           Female
         </div>
       </label>

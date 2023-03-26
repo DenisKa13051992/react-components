@@ -22,6 +22,11 @@ export type StateType = {
   value?: string;
 };
 
+export type StateTypeCard = {
+  isActive?: boolean;
+  value?: UserCardType | string;
+};
+
 export type UserNameForm = {
   userName: string;
   propRef: React.Ref<HTMLInputElement>;
@@ -34,4 +39,18 @@ export type UserCountryForm = {
 
 export type UserFileForm = {
   propRef: React.Ref<HTMLInputElement>;
+};
+
+export type UserCardType = {
+  userName?: string;
+  userBirthdate?: string;
+  userCountry?: string;
+  userPhoto?: File | string;
+  userAgree?: boolean | string;
+  userGender?: string;
+};
+
+export type UserCardTypeWithKey = {
+  userCardInfo: UserCardType;
+  key?: number;
 };
