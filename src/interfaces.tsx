@@ -20,25 +20,38 @@ export type IDataProductWithKey = {
 export type StateType = {
   isActive?: boolean;
   value?: string;
+  isInvalid?: boolean;
 };
 
 export type StateTypeCard = {
   isActive?: boolean;
   value?: UserCardType | string;
+  isInvalidPass: boolean;
+  showAddUserMessage?: boolean;
 };
 
 export type UserNameForm = {
   userName: string;
-  propRef: React.Ref<HTMLInputElement>;
+  propRef?: React.Ref<HTMLInputElement>;
+  propMaleRef?: React.Ref<HTMLInputElement>;
+  propFemaleRef?: React.Ref<HTMLInputElement>;
+  isInvalidName?: boolean;
+  isInvalidBirthDate?: boolean;
+  isInvalidGender?: boolean;
+  cleanForm?: boolean;
+  showAddUserMessage?: boolean;
+  isInvalidAgree?: boolean;
 };
 
 export type UserCountryForm = {
   userName: string;
   propRef: React.Ref<HTMLSelectElement>;
+  isInvalidCountry: boolean;
 };
 
 export type UserFileForm = {
   propRef: React.Ref<HTMLInputElement>;
+  isInvalidUserFile: boolean;
 };
 
 export type UserCardType = {
