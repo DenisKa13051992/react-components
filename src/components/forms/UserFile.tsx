@@ -12,7 +12,7 @@ class UserFileInput extends Component<UserFileForm> {
       <label className="form-item-user-photo-container">
         <div className="form-item-user-photo">
           Upload foto:
-          <input type="file" ref={this.props.propRef} />
+          <input type="file" ref={this.props.propRef} data-testid="file-picker" />
         </div>
         {!this.props.isInvalidUserFile && (
           <span className="invalidMessage">Error: choose a photo</span>

@@ -11,8 +11,8 @@ class UserBirthDate extends Component<UserNameForm, StateType> {
     return (
       <label className="form-item-label">
         <div className="form-item">
-          Select birthDate:
-          <input type="date" ref={this.props.propRef} />
+          Select birthdate:
+          <input type="date" ref={this.props.propRef} data-testid="date-picker" />
         </div>
         {!this.props.isInvalidBirthDate && (
           <span className="invalidMessage">Error: incorrect date</span>

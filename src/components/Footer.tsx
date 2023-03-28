@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './Footer.css';
 import githubIcon from '../assets/githubIcon.png';
-// import { GithubLogo } from '../assets/github';
 
 class Footer extends Component {
   render() {
@@ -17,7 +16,7 @@ class Footer extends Component {
             </a>
           </li>
           <li className="footer-item">
-            <a className="footer-rss-link" href="https://github.com/DenisKa13051992">
+            <a className="footer-rss-link" href="https://wearecommunity.io/events/rs-react-2023q1">
               <img
                 className="footer-rss-img"
                 src="https://sonejka.github.io/rs-kittens/dist/images/partners/logo-rs.svg"

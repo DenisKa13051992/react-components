@@ -1,8 +1,6 @@
 import { UserCardTypeWithKey, StateType, UserCardType } from '../../interfaces';
 import React, { Component } from 'react';
 
-// import './Cart.css';
-
 class UserCard extends Component<UserCardTypeWithKey, StateType> {
   constructor(props: UserCardTypeWithKey) {
     super(props);
@@ -16,7 +14,6 @@ class UserCard extends Component<UserCardTypeWithKey, StateType> {
 
   render() {
     const userCard: UserCardType = this.props.userCardInfo;
-    // const isActive = this.state.isActive;
     const image: File = userCard.userPhoto as File;
     return (
       <div className="card-item">

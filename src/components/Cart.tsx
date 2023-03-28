@@ -16,7 +16,6 @@ class Cart extends Component<IDataProductWithKey, StateType> {
 
   render() {
     const dataProduct: IDataProduct = this.props.dataProduct;
-    // const isActive = this.state.isActive;
     return (
       <div className="cart-item">
         <div className="cart-item-img-div">

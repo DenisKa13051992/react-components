@@ -13,7 +13,7 @@ class SelectCountry extends Component<UserCountryForm, StateType> {
       <label className="form-item-label">
         <div className="form-item">
           Select country:
-          <select ref={this.props.propRef}>
+          <select ref={this.props.propRef} data-testid="country-picker">
             {country.map((item: string) => (
               <option value={item} key={item}>
                 {item}

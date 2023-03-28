@@ -12,11 +12,21 @@ class UserGender extends Component<UserNameForm, StateType> {
       <label className="form-item-label">
         <div className="form-item">
           <div>
-            <input type="radio" name="gender" ref={this.props.propMaleRef} />
+            <input
+              type="radio"
+              name="gender"
+              ref={this.props.propMaleRef}
+              data-testid="gender-picker-male"
+            />
             Male
           </div>
           <div>
-            <input type="radio" name="gender" ref={this.props.propFemaleRef} />
+            <input
+              type="radio"
+              name="gender"
+              ref={this.props.propFemaleRef}
+              data-testid="gender-picker-female"
+            />
             Female
           </div>
         </div>
