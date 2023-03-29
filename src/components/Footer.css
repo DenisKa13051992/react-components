@@ -10,8 +10,8 @@
   margin: 5px;
 }
 
-.footer-rss-img, .footer-github-img {
+.footer-rss-img,
+.footer-github-img {
   max-width: 40px;
   max-height: 40px;
 }
-

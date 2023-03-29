@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
@@ -13,8 +12,8 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
-      coverage: {
-        provider: 'istanbul' // or 'istanbul'
-      }
+    coverage: {
+      provider: 'istanbul',
+    },
   },
 });

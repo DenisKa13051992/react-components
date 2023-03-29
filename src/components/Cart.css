@@ -12,7 +12,8 @@
   margin: 5px;
 }
 
-.footer-rss-img, .footer-github-img {
+.footer-rss-img,
+.footer-github-img {
   max-width: 40px;
   max-height: 40px;
 }
@@ -37,7 +38,7 @@
 
 .cart-item-title {
   font-size: 24px;
-  margin-top: 8px
+  margin-top: 8px;
 }
 
 .cart-item-description {
