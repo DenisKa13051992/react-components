@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import FormPage from '../pages/FormPage';
 
 describe('Form page', () => {
-  it('render user name label', () => {
+  it('render options', () => {
     render(<FormPage userName={''} />);
     expect(screen.getAllByRole('option')).toBeDefined();
   });
