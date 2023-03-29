@@ -57,11 +57,6 @@ class FormsPage extends Component<UserNameForm, StateTypeCard> {
       : true;
     this.isInvalidBirthDate = this.userBirthdateRef.current?.value?.length === 0 ? false : true;
     this.isInvalidUserFile = this.userFileRef.current?.files?.length === 0 ? false : true;
-    this.isInvalidGender =
-      !this.userGenderMaleRef.current?.checked && !this.userGenderFemaleRef.current?.checked
-        ? false
-        : true;
-    this.isInvalidAgree = !this.userUpdatesAgreeRef.current?.checked ? false : true;
     this.isInvalidCountry = this.userCountryRef.current?.value === 'none' ? false : true;
     if (this.isInvalidName && this.isInvalidBirthDate && this.isInvalidUserFile) {
       this.renderCarts();
@@ -101,7 +96,7 @@ class FormsPage extends Component<UserNameForm, StateTypeCard> {
     if (this.userBirthdateRef.current) this.userBirthdateRef.current.value = '';
     if (this.userCountryRef.current) this.userCountryRef.current.value = 'none';
     if (this.userUpdatesAgreeRef.current) this.userUpdatesAgreeRef.current.checked = false;
-    if (this.userGenderMaleRef.current) this.userGenderMaleRef.current.checked = false;
+    if (this.userGenderMaleRef.current) this.userGenderMaleRef.current.checked = true;
     if (this.userGenderFemaleRef.current) this.userGenderFemaleRef.current.checked = false;
     if (this.userFileRef.current) this.userFileRef.current.value = '';
   }

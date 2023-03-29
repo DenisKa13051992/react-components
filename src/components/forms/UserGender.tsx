@@ -17,6 +17,7 @@ class UserGender extends Component<UserNameForm, StateType> {
               name="gender"
               ref={this.props.propMaleRef}
               data-testid="gender-picker-male"
+              defaultChecked
             />
             Male
           </div>
@@ -30,9 +31,6 @@ class UserGender extends Component<UserNameForm, StateType> {
             Female
           </div>
         </div>
-        {!this.props.isInvalidGender && (
-          <span className="invalidMessage">Error: choose your gender</span>
-        )}
       </label>
     );
   }

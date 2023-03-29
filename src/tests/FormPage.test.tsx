@@ -5,6 +5,11 @@ import FormPage from '../pages/FormPage';
 describe('Form page', () => {
   it('render user name label', () => {
     render(<FormPage userName={''} />);
+    expect(screen.getAllByRole('option')).toBeDefined();
+  });
+
+  it('render user name label', () => {
+    render(<FormPage userName={''} />);
     expect(screen.getByText(/User name:/i)).toBeDefined();
   });
 

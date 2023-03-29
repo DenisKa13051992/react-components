@@ -13,9 +13,6 @@ class UserUpdatesAgree extends Component<UserNameForm, StateType> {
         <div className="form-item">
           <input type="checkbox" ref={this.props.propRef} />I want to receive updates
         </div>
-        {!this.props.isInvalidAgree && (
-          <span className="invalidMessage">Error: agree with receiving</span>
-        )}
       </label>
     );
   }
