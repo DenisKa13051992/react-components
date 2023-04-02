@@ -7,7 +7,8 @@ import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import FormsPage from './pages/FormPage';
+// import FormsPage from './pages/FormPage';
+import UserForm from './pages/FormPage';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="/forms" element={<FormsPage userName={''} propRef={null} />} />
+        <Route path="/forms" element={<UserForm />} />
       </Routes>
       <Footer />
     </div>
