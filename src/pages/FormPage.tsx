@@ -1,111 +1,38 @@
-import { Component, createRef, FormEvent, useState } from 'react';
-
+import { useState } from 'react';
 import './FormPage.css';
-
-// import UserName from '../components/forms/UserName';
-// import { UserNameForm, UserCardType, StateTypeCard } from '../interfaces';
-// import SelectCountry from '../components/forms/UserCountry';
-// import UserBirthDate from '../components/forms/UserBirthdate';
-// import UserUpdatesAgree from '../components/forms/UserUpdatesAgree';
-// import UserGender from '../components/forms/UserGender';
-// import UserFileInput from '../components/forms/UserFile';
-
-// class FormsPage extends Component<UserNameForm, StateTypeCard> {
-//   userNameRef: React.RefObject<HTMLInputElement>;
-//   userBirthdateRef: React.RefObject<HTMLInputElement>;
-//   userCountryRef: React.RefObject<HTMLSelectElement>;
-//   userFileRef: React.RefObject<HTMLInputElement>;
-//   userGenderMaleRef: React.RefObject<HTMLInputElement>;
-//   userGenderFemaleRef: React.RefObject<HTMLInputElement>;
-//   userUpdatesAgreeRef: React.RefObject<HTMLInputElement>;
-//   userCardsInfo: UserCardType[] | [];
-//   isInvalidName: boolean;
-//   isInvalidBirthDate: boolean;
-//   isInvalidUserFile: boolean;
-//   cleanForm: boolean;
-//   isInvalidGender: boolean;
-//   isInvalidAgree: boolean;
-//   isInvalidCountry: boolean;
-
-//   constructor(props: UserNameForm) {
-//     super(props);
-//     this.state = { value: '', isInvalidPass: true, showAddUserMessage: false };
-//     this.handleSubmit = this.handleSubmit.bind(this);
-//     this.userNameRef = createRef<HTMLInputElement>();
-//     this.userBirthdateRef = createRef<HTMLInputElement>();
-//     this.userCountryRef = createRef<HTMLSelectElement>();
-//     this.userFileRef = createRef<HTMLInputElement>();
-//     this.userGenderMaleRef = createRef<HTMLInputElement>();
-//     this.userGenderFemaleRef = createRef<HTMLInputElement>();
-//     this.userUpdatesAgreeRef = createRef<HTMLInputElement>();
-//     this.userCardsInfo = [];
-//     this.isInvalidName = true;
-//     this.isInvalidBirthDate = true;
-//     this.isInvalidUserFile = true;
-//     this.cleanForm = false;
-//     this.isInvalidGender = true;
-//     this.isInvalidAgree = true;
-//     this.isInvalidCountry = true;
-//   }
-
-//   handleSubmit(event: FormEvent<HTMLFormElement>) {
-//     event.preventDefault();
-//     this.isValid();
-//   }
-
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { country } from '../data';
 import UserCard from '../components/forms/UserCard';
-import { UserCardType } from '../interfaces';
+import { UserCardType, UserCardTypeData } from '../interfaces';
 
-type UserCardTypeState = {
-  userCardsInfo?: UserCardType | UserCardType[];
-  showAddUserMessage?: boolean;
-};
+const userCardsInfo: UserCardType[] = [];
+let genderName = '';
 
 function UserForm() {
   const {
     register,
     handleSubmit,
     reset,
-    getValues,
     formState: { errors },
   } = useForm({ mode: 'onBlur' });
-  const [cards, setCards] = useState([]);
-  const onSubmit = (data: UserCardType) => {
-    const userCardsInfo: UserCardType[] | undefined = [];
-    console.log(userCardsInfo);
-    const showAddUserMessage = false;
-    userCardsInfo?.push(data);
-    console.log(userCardsInfo);
+  const [cards, setCards] = useState(userCardsInfo);
+  const [userMessage, setUserMessage] = useState(false);
+  const onSubmit: SubmitHandler<UserCardTypeData> = (data: UserCardTypeData) => {
+    const userInfo: UserCardType = {
+      userName: data.userName,
+      userBirthdate: data.userBirthdate,
+      userCountry: data.userCountry,
+      userPhoto: data.userPhoto ? data.userPhoto[0] : data.userPhoto,
+      userAgree: 'I receive updates',
+      userGender: genderName,
+    };
+    userCardsInfo?.push(userInfo);
+    setUserMessage(true);
     setCards(userCardsInfo);
-    setTimeout(() => setCards(userCardsInfo), 4000);
-    // showAddUserCardMessage(userCardsInfo);
-    // renderCarts();
-    console.log(getValues('userFirstName'));
+    setTimeout(() => setUserMessage(false), 4000);
     reset();
   };
-
-  // const renderCarts = (): void => {
-  //   const userInfo: UserCardType = {
-  //     userName: getValues('userFirstName'),
-  //     userBirthdate: getValues('userBirthdate'),
-  //     userCountry: getValues('userCountry'),
-  //     userPhoto: getValues('userPhoto'),
-  //     userAgree: 'I receive updates',
-  //     userGender: getValues('userGender'),
-  //   };
-  //   userCardsInfo[userCardsInfo.length] = userInfo;
-  //   console.log(userCardsInfo);
-  //   // setCards(userCardsInfo);
-  //   showAddUserCardMessage();
-  // };
-
-  // const showAddUserCardMessage = async (userCardsInfo: UserCardType[]): Promise<void> => {
-  //   await setCards(userCardsInfo);
-  //   setTimeout(() => setCards(userCardsInfo), 4000);
-  // };
 
   return (
     <div className="userInfo-container">
@@ -114,7 +41,7 @@ function UserForm() {
           <div className="form-item">
             User name:
             <input
-              {...register('userFirstName', {
+              {...register('userName', {
                 required: true,
                 minLength: {
                   value: 3,
@@ -123,7 +50,7 @@ function UserForm() {
               })}
             />
           </div>
-          {errors.userFirstName && (
+          {errors.userName && (
             <span className="invalidMessage">
               Error: the name must contain at least 3 characters
             </span>
@@ -178,6 +105,10 @@ function UserForm() {
             <div>
               <input
                 type="radio"
+                value="Male"
+                onInput={(event) => {
+                  genderName = event.currentTarget.value;
+                }}
                 {...register('userGender', {
                   required: true,
                 })}
@@ -189,6 +120,10 @@ function UserForm() {
             <div>
               <input
                 type="radio"
+                value="Female"
+                onInput={(event) => {
+                  genderName = event.currentTarget.value;
+                }}
                 {...register('userGender', {
                   required: true,
                 })}
@@ -205,18 +140,18 @@ function UserForm() {
             Upload foto:
             <input
               type="file"
-              {...register('userFoto', {
+              {...register('userPhoto', {
                 required: true,
               })}
               data-testid="file-picker"
             />
           </div>
-          {errors.userFoto && <span className="invalidMessage">Error: choose a photo</span>}
+          {errors.userPhoto && <span className="invalidMessage">Error: choose a photo</span>}
         </label>
         <input type="submit" value="Отправить" />
       </form>
       <div className="user-card-addCard">
-        {cards && <span className="user-card-addCard-message">Success!</span>}
+        {userMessage && <span className="user-card-addCard-message">Success!</span>}
       </div>
       <div className="user-card-container">
         {userCardsInfo.map((item, index) => (

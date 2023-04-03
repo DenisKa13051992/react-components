@@ -63,6 +63,15 @@ export type UserCardType = {
   userGender?: string;
 };
 
+export interface UserCardTypeData {
+  userName?: string;
+  userBirthdate?: string;
+  userCountry?: string;
+  userPhoto?: FileList;
+  userAgree?: boolean | string;
+  userGender?: string;
+}
+
 export type UserCardTypeWithKey = {
   userCardInfo: UserCardType;
   key?: number;
