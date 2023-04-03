@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import './FormPage.css';
 import React from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import { country } from '../data';
 import UserCard from '../components/forms/UserCard';
-import { UserCardType, UserCardTypeData } from '../interfaces';
+import { UserCardType } from '../interfaces';
 
 const userCardsInfo: UserCardType[] = [];
-let genderName = '';
 
 function UserForm() {
   const {
@@ -15,21 +14,31 @@ function UserForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ mode: 'onBlur' });
+  } = useForm({
+    defaultValues: {
+      userName: '',
+      userBirthdate: '',
+      userCountry: 'none',
+      userPhoto: '',
+      userAgree: '',
+      userGender: '',
+    },
+  });
   const [cards, setCards] = useState(userCardsInfo);
   const [userMessage, setUserMessage] = useState(false);
-  const onSubmit: SubmitHandler<UserCardTypeData> = (data: UserCardTypeData) => {
+  const onSubmit = (data: FieldValues) => {
     const userInfo: UserCardType = {
       userName: data.userName,
       userBirthdate: data.userBirthdate,
       userCountry: data.userCountry,
       userPhoto: data.userPhoto ? data.userPhoto[0] : data.userPhoto,
       userAgree: 'I receive updates',
-      userGender: genderName,
+      userGender: data.userGender,
     };
     userCardsInfo?.push(userInfo);
     setUserMessage(true);
     setCards(userCardsInfo);
+    console.log(cards);
     setTimeout(() => setUserMessage(false), 4000);
     reset();
   };
@@ -106,13 +115,10 @@ function UserForm() {
               <input
                 type="radio"
                 value="Male"
-                onInput={(event) => {
-                  genderName = event.currentTarget.value;
-                }}
                 {...register('userGender', {
                   required: true,
                 })}
-                name="gender"
+                name="userGender"
                 data-testid="gender-picker-male"
               />
               Male
@@ -121,13 +127,10 @@ function UserForm() {
               <input
                 type="radio"
                 value="Female"
-                onInput={(event) => {
-                  genderName = event.currentTarget.value;
-                }}
                 {...register('userGender', {
                   required: true,
                 })}
-                name="gender"
+                name="userGender"
                 data-testid="gender-picker-female"
               />
               Female

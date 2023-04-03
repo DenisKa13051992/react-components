@@ -1,29 +1,35 @@
-import React, { ChangeEvent, Component } from 'react';
-
+import React, { ChangeEvent, useState } from 'react';
 import './SearchBar.css';
 
-class SearchBar extends Component {
-  state = { inputValue: localStorage.getItem('searchValue') || '' };
-
-  handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+const SearchBar = () => {
+  const [searchState, setSearchState] = useState(localStorage.getItem('searchValue') || '');
+  const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
-    this.setState({ inputValue });
+    setSearchState(inputValue);
     localStorage.setItem('searchValue', inputValue);
   };
 
-  render() {
-    const inputValue = this.state.inputValue;
-    return (
-      <form className="search-bar">
-        <input
-          className="search-input"
-          type="text"
-          placeholder="Search"
-          onChange={this.handleChange}
-          value={inputValue}
-        />
-      </form>
-    );
-  }
-}
+  const clearHandleClick = () => {
+    setSearchState('');
+    localStorage.removeItem('searchValue');
+  };
+
+  const sendHandleClick = () => {
+    console.log('Searching');
+  };
+
+  return (
+    <form className="search-bar">
+      <label className="search-label-input">Search:</label>
+      <input
+        className="search-input"
+        placeholder="Search"
+        onChange={inputHandler}
+        value={searchState}
+      />
+      <input type="button" value="Send" onClick={sendHandleClick} />
+      <input type="button" value="Clear" onClick={clearHandleClick} />
+    </form>
+  );
+};
 export default SearchBar;
