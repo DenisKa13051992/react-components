@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1680625539334" clover="3.2.0">
-  <project timestamp="1680625539334" name="All files">
-    <metrics statements="46" coveredstatements="31" conditionals="18" coveredconditionals="9" methods="20" coveredmethods="13" elements="84" coveredelements="53" complexity="0" loc="46" ncloc="46" packages="4" files="12" classes="12"/>
+<coverage generated="1680639970257" clover="3.2.0">
+  <project timestamp="1680639970257" name="All files">
+    <metrics statements="52" coveredstatements="37" conditionals="20" coveredconditionals="11" methods="23" coveredmethods="16" elements="95" coveredelements="64" complexity="0" loc="52" ncloc="52" packages="4" files="12" classes="12"/>
     <package name="src">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/App.tsx">
@@ -15,7 +15,7 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="21" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="6"/>
+      <metrics statements="27" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="12" coveredmethods="9"/>
       <file name="Cart.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/components/Cart.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
@@ -38,19 +38,25 @@
         <line num="7" count="6" type="stmt"/>
       </file>
       <file name="SearchBar.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/components/SearchBar.tsx">
-        <metrics statements="12" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="1"/>
+        <metrics statements="18" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="4"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="2" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.forms">

@@ -1,13 +1,24 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './SearchBar.css';
 
 const SearchBar = () => {
+  const searchRef = useRef<string>('');
   const [searchState, setSearchState] = useState(localStorage.getItem('searchValue') || '');
   const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
     setSearchState(inputValue);
     localStorage.setItem('searchValue', inputValue);
   };
+
+  useEffect(() => {
+    return () => {
+      localStorage.setItem('searchValue', searchRef.current || '');
+    };
+  }, []);
+
+  useEffect(() => {
+    searchRef.current = searchState;
+  }, [searchState]);
 
   const clearHandleClick = () => {
     setSearchState('');
