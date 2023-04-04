@@ -58,7 +58,7 @@ export type UserCardType = {
   userName?: string;
   userBirthdate?: string;
   userCountry?: string;
-  userPhoto?: File | string;
+  userPhoto?: string;
   userAgree?: boolean | string;
   userGender?: string;
 };

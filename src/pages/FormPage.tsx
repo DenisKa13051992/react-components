@@ -31,7 +31,7 @@ function UserForm() {
       userName: data.userName,
       userBirthdate: data.userBirthdate,
       userCountry: data.userCountry,
-      userPhoto: data.userPhoto ? data.userPhoto[0] : data.userPhoto,
+      userPhoto: data.userPhoto ? URL.createObjectURL(data.userPhoto[0]) : '',
       userAgree: 'I receive updates',
       userGender: data.userGender,
     };
@@ -158,7 +158,7 @@ function UserForm() {
       </div>
       <div className="user-card-container">
         {userCardsInfo.map((item, index) => (
-          <UserCard userCardInfo={item} key={index} />
+          <UserCard userCardInfo={item} key={index} data-testid="userCard-tag-name" />
         ))}
       </div>
     </div>

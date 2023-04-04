@@ -27,7 +27,7 @@ const SearchBar = () => {
         onChange={inputHandler}
         value={searchState}
       />
-      <input type="button" value="Send" onClick={sendHandleClick} />
+      <input type="button" value="Search" onClick={sendHandleClick} />
       <input type="button" value="Clear" onClick={clearHandleClick} />
     </form>
   );

@@ -14,11 +14,10 @@ class UserCard extends Component<UserCardTypeWithKey, StateType> {
 
   render() {
     const userCard: UserCardType = this.props.userCardInfo;
-    const image: File = userCard.userPhoto as File;
     return (
       <div className="card-item">
         <div className="card-item-img-div">
-          <img className="card-item-img" src={URL.createObjectURL(image)} alt="" />
+          <img className="card-item-img" src={userCard.userPhoto} alt="" />
         </div>
         <ul className="card-item-list-group">
           <li className="list-group-card-item">
