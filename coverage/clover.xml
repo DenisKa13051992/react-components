@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1680598892229" clover="3.2.0">
-  <project timestamp="1680598892229" name="All files">
-    <metrics statements="50" coveredstatements="33" conditionals="18" coveredconditionals="9" methods="24" coveredmethods="15" elements="92" coveredelements="57" complexity="0" loc="50" ncloc="50" packages="4" files="12" classes="12"/>
+<coverage generated="1680625539334" clover="3.2.0">
+  <project timestamp="1680625539334" name="All files">
+    <metrics statements="46" coveredstatements="31" conditionals="18" coveredconditionals="9" methods="20" coveredmethods="13" elements="84" coveredelements="53" complexity="0" loc="46" ncloc="46" packages="4" files="12" classes="12"/>
     <package name="src">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/App.tsx">
@@ -15,24 +15,23 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="22" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="7"/>
+      <metrics statements="21" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="6"/>
       <file name="Cart.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/components/Cart.tsx">
-        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="200" type="stmt"/>
         <line num="8" count="200" type="stmt"/>
-        <line num="9" count="200" type="stmt"/>
-        <line num="10" count="200" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="18" count="200" type="stmt"/>
-        <line num="19" count="200" type="stmt"/>
       </file>
       <file name="CartList.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/components/CartList.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="13" count="200" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="200" type="stmt"/>
       </file>
       <file name="Footer.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/components/Footer.tsx">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="8" count="5" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
       </file>
       <file name="Header.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/components/Header.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -55,15 +54,12 @@
       </file>
     </package>
     <package name="src.components.forms">
-      <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="UserCard.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/components/forms/UserCard.tsx">
-        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.pages">
@@ -93,7 +89,7 @@
       </file>
       <file name="HomePage.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/pages/HomePage.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
       </file>
       <file name="NotFoundPage.tsx" path="C:/E/JS/rs_school/react/react-components/react-components/src/pages/NotFoundPage.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
