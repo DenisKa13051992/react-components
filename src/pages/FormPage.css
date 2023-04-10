@@ -58,7 +58,6 @@
   flex-direction: column;
 }
 
-.cart-item,
 .card-item {
   display: flex;
   flex-direction: column;

@@ -112,6 +112,11 @@ export type CharacterResults = {
   created: string;
 };
 
+export type ModalCartState = {
+  characterResult: CharacterResults;
+  closeModal: React.Dispatch<SetStateAction<boolean>>;
+};
+
 export type CharacterResultsState = {
   characterResults: CharacterResults[];
 };
