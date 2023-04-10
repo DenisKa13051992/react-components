@@ -1,5 +1,4 @@
 import { AllCharacters } from '../interfaces';
-// import React from 'react';
 
 const GetAllCharacters = async () => {
   const response = await fetch('https://rickandmortyapi.com/api/character');

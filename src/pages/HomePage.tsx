@@ -13,7 +13,7 @@ function HomePage() {
 
   return (
     <div className="main-container">
-      <SearchBar />
+      <SearchBar updateCartList={setData} />
       <CartList characterResults={data} />
     </div>
   );

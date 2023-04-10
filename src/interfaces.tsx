@@ -1,3 +1,5 @@
+import { SetStateAction } from 'react';
+
 export interface IDataProduct {
   id: number;
   title: string;
@@ -116,4 +118,8 @@ export type CharacterResultsState = {
 
 export type CharacterResultState = {
   characterResult: CharacterResults;
+};
+
+export type CharacterResultsStatesByName = {
+  updateCartList: React.Dispatch<SetStateAction<CharacterResults[]>>;
 };
