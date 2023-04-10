@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import GetAllCharacters from '../rickAndMortyApi/GetAllCharacters';
 import './SearchBar.css';
 
 const SearchBar = () => {
@@ -25,8 +26,10 @@ const SearchBar = () => {
     localStorage.removeItem('searchValue');
   };
 
-  const sendHandleClick = () => {
+  const sendHandleClick = async () => {
     console.log('Searching');
+    const obj = await GetAllCharacters();
+    setTimeout(() => console.log(obj.results), 0);
   };
 
   return (

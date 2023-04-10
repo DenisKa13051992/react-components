@@ -1,36 +1,43 @@
-import { IDataProduct, IDataProductWithKey } from '../interfaces';
+import { CharacterResults, CharacterResultState } from '../interfaces';
 import React from 'react';
 
 import './Cart.css';
 
-const Cart = (props: IDataProductWithKey) => {
-  const dataProduct: IDataProduct = props.dataProduct;
+const Cart = (data: CharacterResultState) => {
+  const dataProduct: CharacterResults = data.characterResult;
   return (
     <div className="cart-item">
       <div className="cart-item-img-div">
-        <img className="cart-item-img" src={dataProduct.images[0]} alt="" />
+        <img className="cart-item-img" src={dataProduct.image} alt="" />
       </div>
-      <div className="cart-item-title">{dataProduct.title}</div>
-      <h4 className="cart-item-description">{dataProduct.description}</h4>
+      <div className="cart-item-name">{dataProduct.name}</div>
       <ul className="cart-item-list-group">
         <li className="list-group-item">
           <small>
-            Price: <span className="ItemPrice">{dataProduct.price}</span> EUR
+            Species: <span className="Item-species">{dataProduct.species}</span>
           </small>
         </li>
         <li className="list-group-item">
           <small>
-            Discount: <span className="ItemDiscount">{dataProduct.discountPercentage}</span> %
+            Gender: <span className="Item-gender">{dataProduct.gender}</span>
           </small>
         </li>
         <li className="list-group-item">
           <small>
-            Rating: <span className="ItemRating">{dataProduct.rating}</span>
+            Status: <span className="Item-status">{dataProduct.status}</span>
           </small>
         </li>
         <li className="list-group-item">
           <small>
-            Stock: <span className="ItemStock">{dataProduct.stock}</span>
+            Location: <span className="Item-location">{dataProduct.location.name}</span>
+          </small>
+        </li>
+        <li className="list-group-item">
+          <small>
+            Episode:{' '}
+            <span className="Item-episode">
+              {parseInt(String(dataProduct.episode[0].match(/\d+/)))}
+            </span>
           </small>
         </li>
       </ul>

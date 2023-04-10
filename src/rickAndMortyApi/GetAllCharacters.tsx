@@ -1,0 +1,11 @@
+import { AllCharacters } from '../interfaces';
+// import React from 'react';
+
+const GetAllCharacters = async () => {
+  const response = await fetch('https://rickandmortyapi.com/api/character');
+  const allCharacters: AllCharacters = await response.json();
+  console.log(allCharacters, response);
+  return allCharacters;
+};
+
+export default GetAllCharacters;

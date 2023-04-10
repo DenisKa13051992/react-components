@@ -1,15 +1,13 @@
 import React from 'react';
-
+import { CharacterResults, CharacterResultsState } from '../interfaces';
 import './Cart.css';
-import products from '../data';
 import Cart from './Cart';
-import { IDataProduct } from 'interfaces';
 
-const CartList = () => {
+const CartList = (data: CharacterResultsState) => {
   return (
     <div className="cart-list">
-      {products.map((item: IDataProduct) => (
-        <Cart dataProduct={item} key={item.id} />
+      {data.characterResults.map((item: CharacterResults) => (
+        <Cart characterResult={item} key={item.id} />
       ))}
     </div>
   );
