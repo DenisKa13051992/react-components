@@ -1,9 +1,8 @@
 import GetCharacterByName from '../rickAndMortyApi/GetCharacterByName';
 
 describe('GetCharacterByName', () => {
-  it('check returning', () => {
-    GetCharacterByName('Morty').then((characterByName) => {
-      expect(characterByName.results.length);
-    });
+  it('check returning', async () => {
+    const data = await GetCharacterByName('Morty');
+    expect(data.results.length).toBeDefined();
   });
 });

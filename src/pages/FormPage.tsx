@@ -151,14 +151,14 @@ function UserForm() {
           </div>
           {errors.userPhoto && <span className="invalidMessage">Error: choose a photo</span>}
         </label>
-        <input type="submit" value="Отправить" />
+        <input type="submit" data-testid="submit-button" value="Отправить" />
       </form>
       <div className="user-card-addCard">
         {userMessage && <span className="user-card-addCard-message">Success!</span>}
       </div>
       <div className="user-card-container">
         {userCardsInfo.map((item, index) => (
-          <UserCard userCardInfo={item} key={index} data-testid="userCard-tag-name" />
+          <UserCard userCardInfo={item} key={index} />
         ))}
       </div>
     </div>

@@ -17,7 +17,9 @@ const CartModal = (data: ModalCartState) => {
       }}
     >
       <div className="cart-item cart-modal-item">
-        <div className="cart-modal-close">x</div>
+        <div className="cart-modal-close" data-testid="cart-modal-close">
+          x
+        </div>
         <div className="cart-item-img-div">
           <img className="cart-item-img" src={characterResult.image} alt="" />
         </div>

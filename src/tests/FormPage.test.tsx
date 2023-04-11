@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import FormPage from '../pages/FormPage';
+import userEvent from '@testing-library/user-event';
 
 describe('Form page', () => {
   it('check options', () => {
@@ -44,5 +45,11 @@ describe('Form page', () => {
     render(<FormPage />);
     expect(screen.getByText(/I want to receive updates/i)).toBeDefined();
     expect(screen.getByRole('checkbox')).toBeDefined();
+  });
+
+  it('check checkbox', () => {
+    render(<FormPage />);
+    userEvent.click(screen.getByTestId('submit-button'));
+    expect(screen.getByTestId('submit-button')).toBeDefined();
   });
 });
