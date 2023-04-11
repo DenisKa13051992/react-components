@@ -143,6 +143,7 @@ function UserForm() {
             Upload foto:
             <input
               type="file"
+              className="button-file"
               {...register('userPhoto', {
                 required: true,
               })}
@@ -151,7 +152,12 @@ function UserForm() {
           </div>
           {errors.userPhoto && <span className="invalidMessage">Error: choose a photo</span>}
         </label>
-        <input type="submit" data-testid="submit-button" value="Отправить" />
+        <input
+          type="submit"
+          className="button-submit"
+          data-testid="submit-button"
+          value="Отправить"
+        />
       </form>
       <div className="user-card-addCard">
         {userMessage && <span className="user-card-addCard-message">Success!</span>}

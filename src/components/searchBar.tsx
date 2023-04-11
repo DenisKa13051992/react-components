@@ -28,7 +28,6 @@ const SearchBar = ({ updateCartList, loading }: CharacterResultsStatesByName) =>
   };
 
   const sendHandleClick = async () => {
-    console.log('Searching');
     loading(true);
     GetCharacterByName(searchState).then((characterByName) => {
       updateCartList(characterByName.results);
@@ -45,8 +44,8 @@ const SearchBar = ({ updateCartList, loading }: CharacterResultsStatesByName) =>
         onChange={inputHandler}
         value={searchState}
       />
-      <input type="button" value="Search" onClick={sendHandleClick} />
-      <input type="button" value="Clear" onClick={clearHandleClick} />
+      <input type="button" className="button-search" value="Search" onClick={sendHandleClick} />
+      <input type="button" className="button-clear" value="Clear" onClick={clearHandleClick} />
     </form>
   );
 };

@@ -103,3 +103,8 @@
   justify-items: end;
   list-style-type: none;
 }
+
+.button-submit,
+.button-file {
+  cursor: pointer;
+}

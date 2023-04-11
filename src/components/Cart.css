@@ -25,6 +25,7 @@
   padding: 5px;
   border: 2px solid black;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .cart-item-img-div {
@@ -86,10 +87,12 @@
   background: linear-gradient(90deg, #aea4e3, #d3ffe8);
   min-width: 330px;
   z-index: 110;
+  cursor: default;
 }
 
 .cart-modal-close {
   align-self: flex-end;
   font-size: 1.8rem;
   margin-right: 8px;
+  cursor: pointer;
 }
