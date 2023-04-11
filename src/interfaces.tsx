@@ -127,4 +127,5 @@ export type CharacterResultState = {
 
 export type CharacterResultsStatesByName = {
   updateCartList: React.Dispatch<SetStateAction<CharacterResults[]>>;
+  loading: React.Dispatch<SetStateAction<boolean>>;
 };

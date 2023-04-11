@@ -7,7 +7,6 @@ import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-// import FormsPage from './pages/FormPage';
 import UserForm from './pages/FormPage';
 
 function App() {

@@ -3,7 +3,7 @@ import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import GetCharacterByName from '../rickAndMortyApi/GetCharacterByName';
 import './SearchBar.css';
 
-const SearchBar = ({ updateCartList }: CharacterResultsStatesByName) => {
+const SearchBar = ({ updateCartList, loading }: CharacterResultsStatesByName) => {
   const searchRef = useRef<string>('');
   const [searchState, setSearchState] = useState(localStorage.getItem('searchValue') || '');
   const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -29,12 +29,11 @@ const SearchBar = ({ updateCartList }: CharacterResultsStatesByName) => {
 
   const sendHandleClick = async () => {
     console.log('Searching');
-    const obj = await GetCharacterByName(searchState);
-    setTimeout(() => console.log(obj, searchState), 0);
-    GetCharacterByName(searchState).then((characterByName) =>
-      updateCartList(characterByName.results)
-    );
-    // updateCartList(obj.results);
+    loading(true);
+    GetCharacterByName(searchState).then((characterByName) => {
+      updateCartList(characterByName.results);
+      loading(false);
+    });
   };
 
   return (

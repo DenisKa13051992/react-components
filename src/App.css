@@ -29,3 +29,36 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.preloader-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 120;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-div:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background: linear-gradient(90deg, #aea4e3, #d3ffe8);
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.preloader {
+  width: 80px;
+  height: 80px;
+  z-index: 130;
+}
