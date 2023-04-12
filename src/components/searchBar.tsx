@@ -29,10 +29,15 @@ const SearchBar = ({ updateCartList, loading }: CharacterResultsStatesByName) =>
 
   const sendHandleClick = async () => {
     loading(true);
-    GetCharacterByName(searchState).then((characterByName) => {
-      updateCartList(characterByName.results);
-      loading(false);
-    });
+    GetCharacterByName(searchState)
+      .then((characterByName) => {
+        updateCartList(characterByName.results);
+        loading(false);
+      })
+      .catch(() => {
+        updateCartList([]);
+        loading(false);
+      });
   };
 
   return (

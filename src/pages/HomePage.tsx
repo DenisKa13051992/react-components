@@ -13,14 +13,24 @@ function HomePage() {
 
   useEffect(() => {
     !searchInputValue
-      ? GetAllCharacters().then((allCharacters) => {
-          setData(allCharacters.results);
-          setIsLoading(false);
-        })
-      : GetCharacterByName(searchInputValue).then((characterByName) => {
-          setData(characterByName.results);
-          setIsLoading(false);
-        });
+      ? GetAllCharacters()
+          .then((allCharacters) => {
+            setData(allCharacters.results);
+            setIsLoading(false);
+          })
+          .catch(() => {
+            setData([]);
+            setIsLoading(false);
+          })
+      : GetCharacterByName(searchInputValue)
+          .then((characterByName) => {
+            setData(characterByName.results);
+            setIsLoading(false);
+          })
+          .catch(() => {
+            setData([]);
+            setIsLoading(false);
+          });
   }, [searchInputValue]);
 
   return (
@@ -31,7 +41,7 @@ function HomePage() {
         </div>
       )}
       <SearchBar updateCartList={setData} loading={setIsLoading} />
-      <CartList characterResults={data} />
+      {!data.length ? <h1>characters not found</h1> : <CartList characterResults={data} />}
     </div>
   );
 }
