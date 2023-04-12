@@ -16,25 +16,23 @@ function HomePage() {
       ? GetAllCharacters()
           .then((allCharacters) => {
             setData(allCharacters.results);
-            setIsLoading(false);
           })
           .catch(() => {
             setData([]);
-            setIsLoading(false);
           })
       : GetCharacterByName(searchInputValue)
           .then((characterByName) => {
             setData(characterByName.results);
-            setIsLoading(false);
           })
           .catch(() => {
             setData([]);
-            setIsLoading(false);
           });
+    setIsLoading(false);
   }, [searchInputValue]);
 
   return (
     <div className="main-container">
+      <h1 className="rick-and-morty-title">Rick and Morty characters</h1>
       {isLoading && (
         <div className="preloader-div">
           <img className="preloader" src={preloader} alt="loading" />

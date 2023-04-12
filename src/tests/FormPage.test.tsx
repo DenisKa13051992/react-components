@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import FormPage from '../pages/FormPage';
 import userEvent from '@testing-library/user-event';
+import { vi } from 'vitest';
 
 describe('Form page', () => {
   it('check options', () => {
@@ -51,5 +52,24 @@ describe('Form page', () => {
     render(<FormPage />);
     userEvent.click(screen.getByTestId('submit-button'));
     expect(screen.getByTestId('submit-button')).toBeDefined();
+  });
+
+  it('Check adding cart', async () => {
+    window.URL.createObjectURL = vi.fn();
+    const image = new File([''], 'picture.jpeg', { type: 'image/jpeg' });
+    render(<FormPage />);
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Test' } });
+    fireEvent.change(screen.getByTestId('date-picker')!, {
+      target: { value: '2023-05-13' },
+    });
+    fireEvent.change(screen.getByRole('combobox'), { target: { value: 'Belarus' } });
+    fireEvent.click(screen.getByRole('checkbox'));
+    fireEvent.click(screen.getAllByRole('radio')[0]);
+    const input = screen.getByLabelText(/Upload foto:/i);
+    await userEvent.upload(input, image);
+    fireEvent.click(screen.getByTestId('submit-button'));
+    await waitFor(() => {
+      expect(screen.getByText(/Success!/i)).toBeInTheDocument();
+    });
   });
 });

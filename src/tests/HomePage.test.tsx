@@ -31,4 +31,10 @@ describe('Home Page', () => {
     await userEvent.click(closeButton);
     expect(mockFn).toHaveBeenCalledTimes(1);
   });
+
+  it('display the correct title', () => {
+    render(<HomePage />);
+    const message = screen.queryByText(/Rick and Morty characters/i);
+    expect(message).toBeVisible();
+  });
 });
