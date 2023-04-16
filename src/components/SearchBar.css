@@ -1,0 +1,14 @@
+.search-input {
+  width: 80%;
+}
+
+.search-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button-search,
+.button-clear {
+  cursor: pointer;
+}
