@@ -5,8 +5,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { country } from '../data';
 import UserCard from '../components/forms/UserCard';
 import { UserCardType } from '../interfaces';
-
-const userCardsInfo: UserCardType[] = [];
+import { useActions, useAppSelector } from '../hooks/redux';
 
 function UserForm() {
   const {
@@ -24,7 +23,8 @@ function UserForm() {
       userGender: '',
     },
   });
-  const [cards, setCards] = useState(userCardsInfo);
+  const { formCard } = useAppSelector((state) => state.formCard);
+  const { formAdded } = useActions();
   const [userMessage, setUserMessage] = useState(false);
   const onSubmit = (data: FieldValues) => {
     const userInfo: UserCardType = {
@@ -35,10 +35,10 @@ function UserForm() {
       userAgree: 'I receive updates',
       userGender: data.userGender,
     };
-    userCardsInfo?.push(userInfo);
     setUserMessage(true);
-    setCards(userCardsInfo);
-    console.log(cards);
+    console.log(formCard);
+    formAdded(userInfo);
+    console.log(formCard);
     setTimeout(() => setUserMessage(false), 4000);
     reset();
   };
@@ -163,7 +163,7 @@ function UserForm() {
         {userMessage && <span className="user-card-addCard-message">Success!</span>}
       </div>
       <div className="user-card-container">
-        {userCardsInfo.map((item, index) => (
+        {formCard.map((item, index) => (
           <UserCard userCardInfo={item} key={index} />
         ))}
       </div>

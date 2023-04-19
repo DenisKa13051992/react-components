@@ -135,5 +135,5 @@ export type StoreStateSearch = {
 };
 
 export type StoreStateCard = {
-  formCard: UserCardTypeData[];
+  formCard: UserCardType[];
 };
