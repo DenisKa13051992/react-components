@@ -36,9 +36,7 @@ function UserForm() {
       userGender: data.userGender,
     };
     setUserMessage(true);
-    console.log(formCard);
     formAdded(userInfo);
-    console.log(formCard);
     setTimeout(() => setUserMessage(false), 4000);
     reset();
   };

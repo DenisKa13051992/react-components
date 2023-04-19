@@ -8,7 +8,6 @@ import { useSearchCardsQuery } from '../store/apiSlice';
 function HomePage() {
   const search = useAppSelector((state) => state.search.searchValue);
   const { data, isLoading, isError } = useSearchCardsQuery(search || '');
-  console.log(search);
 
   return (
     <div className="main-container">
