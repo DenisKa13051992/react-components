@@ -1,10 +1,6 @@
-import { CharacterResultsStatesByName } from '../interfaces';
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import GetCharacterByName from '../rickAndMortyApi/GetCharacterByName';
+import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import './SearchBar.css';
-import { useDispatch } from 'react-redux';
-import { searchAdded } from '../store/searchBarSlice';
 import { useActions, useAppSelector } from '../hooks/redux';
 
 const SearchBar = () => {
@@ -14,44 +10,10 @@ const SearchBar = () => {
   const query = useAppSelector((state) => state.search.searchValue);
   const { searchAdded } = useActions();
   // const [searchBarValue, setSearchBarValue] = useState(query);
-
-  // const searchRef = useRef<string>('');
-  // const [searchState, setSearchState] = useState(localStorage.getItem('searchValue') || '');
-  // const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const inputValue = event.target.value;
-  //   setSearchState(inputValue);
-  //   localStorage.setItem('searchValue', inputValue);
+  // const clearHandleClick = () => {
+  //   setSearchBarValue('');
+  //   searchAdded('');
   // };
-
-  // useEffect(() => {
-  //   return () => {
-  //     localStorage.setItem('searchValue', searchRef.current || '');
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   searchRef.current = searchState;
-  // }, [searchState]);
-
-  const clearHandleClick = () => {
-    // setSearchState('');
-    // localStorage.removeItem('searchValue');
-  };
-
-  const sendHandleClick = async () => {
-    // loading(true);
-    // GetCharacterByName(searchState)
-    //   .then((characterByName) => {
-    //     updateCartList(characterByName.results);
-    //   })
-    //   .catch(() => {
-    //     updateCartList([]);
-    //   })
-    //   .finally(() => {
-    //     loading(false);
-    //   });
-    // searchAdded(data.value);
-  };
 
   const onSubmit: SubmitHandler<{ value: string }> = (data) => {
     searchAdded(data.value);
@@ -66,10 +28,10 @@ const SearchBar = () => {
         {...register('value')}
         defaultValue={String(query)}
       />
-      <button type="submit" className="button-search" value="Search" onClick={sendHandleClick}>
+      <button type="submit" className="button-search" value="Search">
         Submit
       </button>
-      <input type="button" className="button-clear" value="Clear" onClick={clearHandleClick} />
+      {/* <input type="button" className="button-clear" value="Clear" onClick={clearHandleClick} /> */}
     </form>
   );
 };
