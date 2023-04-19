@@ -11,4 +11,9 @@
 .button-search,
 .button-clear {
   cursor: pointer;
+  padding: 1px 6px;
+  border: 1px solid black;
+  border-radius: 0px;
+  font-size: 1em;
+  font-family: 'Times New Roman', Times, serif;
 }

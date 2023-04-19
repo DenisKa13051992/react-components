@@ -6,9 +6,10 @@ import Cart from './Cart';
 const CartList = (data: CharacterResultsState) => {
   return (
     <div className="cart-list">
-      {data.characterResults.map((item: CharacterResults) => (
-        <Cart characterResult={item} key={item.id} />
-      ))}
+      {data &&
+        data.characterResults.map((item: CharacterResults) => (
+          <Cart characterResult={item} key={item.id} />
+        ))}
     </div>
   );
 };

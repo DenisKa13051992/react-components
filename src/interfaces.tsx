@@ -129,3 +129,11 @@ export type CharacterResultsStatesByName = {
   updateCartList: React.Dispatch<SetStateAction<CharacterResults[]>>;
   loading: React.Dispatch<SetStateAction<boolean>>;
 };
+
+export type StoreStateSearch = {
+  searchValue: string;
+};
+
+export type StoreStateCard = {
+  formCard: UserCardTypeData[];
+};

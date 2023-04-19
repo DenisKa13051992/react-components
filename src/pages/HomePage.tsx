@@ -5,30 +5,33 @@ import GetAllCharacters from '../rickAndMortyApi/GetAllCharacters';
 import { CharacterResults } from '../interfaces';
 import preloader from '../assets/preloader.gif';
 import GetCharacterByName from '../rickAndMortyApi/GetCharacterByName';
+import { useAppSelector } from '../hooks/redux';
+import { useSearchCardsQuery } from '../store/apiSlice';
 
 function HomePage() {
-  const [data, setData] = useState<CharacterResults[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const searchInputValue = localStorage.getItem('searchValue') || '';
+  // const searchInputValue = localStorage.getItem('searchValue') || '';
+  const search = useAppSelector((state) => state.search.searchValue);
+  const { data, isLoading, isError } = useSearchCardsQuery(search || '');
+  console.log(search);
 
-  useEffect(() => {
-    !searchInputValue
-      ? GetAllCharacters()
-          .then((allCharacters) => {
-            setData(allCharacters.results);
-          })
-          .catch(() => {
-            setData([]);
-          })
-      : GetCharacterByName(searchInputValue)
-          .then((characterByName) => {
-            setData(characterByName.results);
-          })
-          .catch(() => {
-            setData([]);
-          });
-    setIsLoading(false);
-  }, [searchInputValue]);
+  // useEffect(() => {
+  //   !searchInputValue
+  //     ? GetAllCharacters()
+  //         .then((allCharacters) => {
+  //           setData(allCharacters.results);
+  //         })
+  //         .catch(() => {
+  //           setData([]);
+  //         })
+  //     : GetCharacterByName(searchInputValue)
+  //         .then((characterByName) => {
+  //           setData(characterByName.results);
+  //         })
+  //         .catch(() => {
+  //           setData([]);
+  //         });
+  //   setIsLoading(false);
+  // }, [searchInputValue]);
 
   return (
     <div className="main-container">
@@ -38,8 +41,9 @@ function HomePage() {
           <img className="preloader" src={preloader} alt="loading" />
         </div>
       )}
-      <SearchBar updateCartList={setData} loading={setIsLoading} />
-      {!data.length ? <h1>characters not found</h1> : <CartList characterResults={data} />}
+      <SearchBar />
+      {isError && <h1>characters not found</h1>}
+      {data && <CartList characterResults={data} />}
     </div>
   );
 }
