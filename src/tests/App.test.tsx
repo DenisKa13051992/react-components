@@ -3,13 +3,17 @@ import App from '../App';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import { store } from '../store/store';
+import { Provider } from 'react-redux';
 
 describe('App', () => {
   test('renders home page', () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
-        <App />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/']}>
+          <App />
+        </MemoryRouter>
+      </Provider>
     );
     expect(document.getElementsByClassName('wrapper')).toBeDefined();
   });

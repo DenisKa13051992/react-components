@@ -6,12 +6,18 @@ import { rickAndMortyStartData } from '../data';
 import CartModal from '../components/CartModal';
 import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
+import { Provider } from 'react-redux';
+import { store } from '../store/store';
 
 const mockFn = vi.fn();
 const rickAndMortyStartDataItem = rickAndMortyStartData[0];
 describe('Home Page', () => {
   it('renders Home Page', () => {
-    render(<HomePage />);
+    render(
+      <Provider store={store}>
+        <HomePage />
+      </Provider>
+    );
     expect(document.getElementsByClassName('preloader-div')).toBeDefined();
   });
 
@@ -33,7 +39,11 @@ describe('Home Page', () => {
   });
 
   it('display the correct title', () => {
-    render(<HomePage />);
+    render(
+      <Provider store={store}>
+        <HomePage />
+      </Provider>
+    );
     const message = screen.queryByText(/Rick and Morty characters/i);
     expect(message).toBeVisible();
   });
