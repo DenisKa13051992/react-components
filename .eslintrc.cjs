@@ -6,12 +6,10 @@ module.exports = {
     node: true,
   },
   extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'airbnb/hooks',
-    'prettier',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
   overrides: [],
@@ -23,7 +21,7 @@ module.exports = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: 'react-components/tsconfig.json',
+    project: 'tsconfig.json',
   },
   plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
   rules: {
